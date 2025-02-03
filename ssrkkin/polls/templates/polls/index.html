@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Список опросов{% endblock %}
+
+{% block content %}
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+            <li><a href="/polls/{{ question.id }}/"> {{question.question_field}} </a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Вопросов в базе данных нет</p>
+{% endif %}
+{% endblock %}

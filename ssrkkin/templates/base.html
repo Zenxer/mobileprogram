@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>{% block title %}Сайт с опросами{% endblock %} (Сорокин)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+        <meta name="copyright" content="Сорокин" />
+        {% load static %}
+
+        <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    </head>
+    <body>
+        <div class="header">
+            <h2>Опросы на все случаи жизни</h2>
+            {% if browser == 'Desktop' %}
+            <div style="position: absolute; right: 5px; top: 5px" >
+                {% if request.user.is_authenticated %}
+                Пользователь "{{request.user.username}}" | <a href="/logout">Выйти</a>
+                {% else %}
+                <a href="/registration">Зарегистрироваться</a> | <a href="/login">Войти</a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+
+        {% if browser == 'Mobile' %}
+        <div class="header">
+            вы находитесь на мобильной версии <img src ='/static/polls/images/phone-icon.png' height="20" /><br />
+            {% if request.user.is_authenticated %}
+            Пользователь "{{request.user.username}}" | <a href="/logout">Выйти</a>
+            {% else %}
+            <a href="/registration">Зарегистрироваться</a> | <a href="/login">Войти</a>
+            {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="main">
+            {% block content %}{% endblock %}
+
+        </div>
+        <div class="footer">
+            <p align="center">Шуя (c) 2024</p>
+        </div>
+    </body>
+</html>

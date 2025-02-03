@@ -1,0 +1,52 @@
+* {
+    margin: 0px;
+}
+
+li a {
+    color: rgb(0, 110, 255);
+}
+
+/*body {
+    
+}*/
+
+.header{
+    position: relative;
+    border: 2px solid goldenrod;
+    padding: 13px;
+    background: linear-gradient(90deg, #ffd900 0%, #936600 35%);
+    background: -webkit-linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+    background: -o-linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+    background: -moz-linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+}
+
+.header h2{
+    text-align: justify;
+    color:#ffffff;
+    /*-webkit-text-stroke: 1px black;*/
+}
+
+.main{
+    border: 0px solid goldenrod;
+    padding: 10px;
+    background: white url("images/sdf.png") no-repeat;
+    min-height: 300px;
+}
+
+.footer{
+    border: 0px solid goldenrod;
+    background: linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+    background: -webkit-linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+    background: -o-linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+    background: -moz-linear-gradient(-65deg, #ffd900 0%, #936600 35%);
+}
+
+.footer p{
+    text-align: center;
+    color:#ffffff;
+}
+
+.backurl {
+    margin-top: 10px;
+    display: inline-block;
+}

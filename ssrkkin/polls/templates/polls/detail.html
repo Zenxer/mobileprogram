@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ question.question_field }}{% endblock %}
+
+{% block content %}
+<form method="post" action="{% url 'polls:vote' question.id %}">
+{% csrf_token %}
+    <fieldset>
+        <legend><h1>{{ question.question_field }}</h1></legend>
+        {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+        {% for choice in question.choice_set.all %}
+            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+            <label for="choice{{ forloop.counter }}"> {{ choice.choice_text }} </label><br />
+        {% endfor %}
+    </fieldset>
+    <br />
+    {% if request.user.is_authenticated %}
+    <input type="submit" value="Проголосовать" />
+    {% else %}
+    Голосование в опросах доступно только для зарегистрированных пользователей
+    {% endif %}
+</form>
+<a class="backurl" href="{% url 'polls:index' %}">Вернуться</a>
+{% endblock %}
